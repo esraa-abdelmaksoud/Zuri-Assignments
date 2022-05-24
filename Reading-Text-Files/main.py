@@ -9,7 +9,10 @@ import re
 def read_file_content(filename):
     # [assignment] Add your code here 
     with open (filename) as f:
-        text = f.readlines()
+        lines = f.readlines()
+
+    # Join text lines and convert to lowercase
+    text = "".join(lines).lower()
 
     return text
 
@@ -18,11 +21,8 @@ def count_words():
     text = read_file_content("./story.txt")
     # [assignment] Add your code here
 
-    # Join text lines and convert to lowercase
-    full_text = "".join(text).lower()
-
     # Cleaning text to remove symbols, question marks, etc
-    clean_text = re.sub('[^a-z ]', '', full_text)
+    clean_text = re.sub('[^a-z ]', '', text)
     words = clean_text.split()
 
     # Consider any of the two solutions
